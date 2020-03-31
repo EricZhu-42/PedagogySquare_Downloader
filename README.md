@@ -35,7 +35,7 @@
 
 > **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
 >
-> 针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
+> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
 >
 
 ## 使用方法
@@ -67,7 +67,7 @@
 
 | 文件名              | 功能                     |
 | ------------------- | ------------------------ |
-| /figure             | 脚本说明中用到的图片文件 |
+| figure/             | 脚本说明中用到的图片文件 |
 | download.py         | 脚本运行入口             |
 | config.json         | 执行参数的配置文件       |
 | config_example.json | 供参考的样例配置文件     |
