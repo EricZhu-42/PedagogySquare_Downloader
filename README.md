@@ -35,7 +35,7 @@
 
 > **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
 >
-> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
+> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数  
 （更新：**Chromium Edge** + ChromeDriver **可以**正常使用该脚本）
 
 ## 使用方法
@@ -46,7 +46,7 @@
 
 2. 安装对应版本的Python模块：Requests, Selenium（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
 
-3. 安装Chrome，并下载Chrome对应版本的[WebDriver](https://chromedriver.chromium.org/)
+3. 安装Chrome，并下载Chrome[对应版本的WebDriver](https://chromedriver.chromium.org/downloads)
 
 > 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，**与脚本放在同一目录**即可。
 
