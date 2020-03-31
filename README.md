@@ -112,7 +112,7 @@
    如：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
 
    - `download_all_ext` = `true`
-   - `ext_list` = `[zip]`
+   - `ext_list` = `["zip"]`
 
 2. 课程ID在课程主页地址中查看，例如：  
    ![](./figure/0.png)  
