@@ -20,6 +20,13 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+# Function dealing with illegal characters of windows filename
+def filename_filter(name:str):
+    illegal_list = list('/\:*?”"<>|')
+    for char in illegal_list:
+        name = name.replace(char, ' ')
+    return name
+
 # Load config from config.json
 with open('config.json', 'r') as f:
     config = json.loads(f.read())
@@ -89,7 +96,7 @@ if download_all_courses:
     cid_list = cid2name_dict.keys()
 
 for cid in cid_list:
-    course_name = cid2name_dict[cid]
+    course_name = filename_filter(cid2name_dict[cid])
 
     # Create dir for this course
     try:
@@ -119,7 +126,7 @@ for cid in cid_list:
     # Download attachments
     for entry in attachment_list:
         if (entry.get('ext') not in ext_expel_list) and (download_all_ext or entry.get('ext') in ext_list):
-            filename = entry.get('filename')
+            filename = filename_filter(entry.get('filename'))
             filesize = entry.get('size')
             if filename in os.listdir():
                 print("File \"{}\" already exists!".format(filename))
