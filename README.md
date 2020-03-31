@@ -35,8 +35,8 @@
 
 > **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
 >
-> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数（更新：**Chromium Edge** + ChromeDriver **可以**正常使用该脚本）
->
+> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
+（更新：**Chromium Edge** + ChromeDriver **可以**正常使用该脚本）
 
 ## 使用方法
 
@@ -48,7 +48,7 @@
 
 3. 安装Chrome，并下载Chrome对应版本的[WebDriver](https://chromedriver.chromium.org/)
 
-> 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
+> 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，**与脚本放在同一目录**即可。
 
 ### 2. 修改配置文件
 
@@ -109,14 +109,14 @@
 #### 注意：
 
 1. 文件类型参数优先级为：`ext_expel_list` > `download_all_ext` > `ext_list`  
-   即：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
+   如：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
 
-   1. `download_all_ext` = `true`
-   2. `ext_list` = `[zip]`
+   - `download_all_ext` = `true`
+   - `ext_list` = `[zip]`
 
 2. 课程ID在课程主页地址中查看，例如：  
    ![](./figure/0.png)  
-   图中对应的课程id为**8261**
+   图中对应课程的ID为**8261**
 
 ## 版权信息
 

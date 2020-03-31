@@ -136,7 +136,7 @@ for cid in cid_list:
                 print("Downloading {}, filesize = {}".format(filename, filesize))
 
             with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
-                content_size = int(res.headers['content-length'])
+                content_size = eval(res.headers['content-length'])
                 chunk_size = min(content_size, 10240)
                 with open(filename, "wb") as f:
                     chunk_count = 0
