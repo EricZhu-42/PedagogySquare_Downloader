@@ -35,7 +35,7 @@
 
 > **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
 >
-> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
+> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数（更新：**Chromium Edge** + ChromeDriver **可以**正常使用该脚本）
 >
 
 ## 使用方法
