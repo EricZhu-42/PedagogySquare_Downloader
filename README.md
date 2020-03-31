@@ -10,14 +10,28 @@
 
 ## 使用方法
 
-1. 配置Python环境
+### 1. 配置Python环境
 
-- Python 3.7.4
-- Requests 2.22.0
-- Selenium 3.141.0
-  - 基于Chrome + ChromeDriver，其中Chrome版本75.0.3770.142，ChromeDriver版本与Chrome一致修改配置文件 `config.json` ，填入用户名、密码等信息
+开发过程中使用的环境与第三方模块版本如下。
 
- 	3. 运行 `download.py` 
+- **Python** = 3.7.4
+- **Requests** = 2.22.0
+- **Selenium** = 3.141.0
+  - 基于Chrome + ChromeDriver，其中Chrome版本75.0.3770.142，ChromeDriver版本与Chrome一致
+
+> **理论上**该脚本**兼容**其他版本的Python环境或其他类型的WebDriver，但请在发生错误时关注兼容性问题
+>
+> 另：提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
+### 2. 修改配置文件
+
+修改文件 `config.json` ，填入用户名、密码等信息
+
+> 关于如何修改配置文件，请参考”最简配置方案“一章
+> 关于配置文件内各项参数的说明，请参考”配置文件说明“一章
+
+### 3. 运行脚本
+
+运行 `download.py` 
 
 ## 项目结构介绍
 
@@ -27,9 +41,28 @@
 | config.json         | 执行参数的配置文件 |
 | config_example.json | 样例配置文件       |
 
+## 最简配置方案
+
+```json
+{
+	"username": "your_username",
+	"password": "your_password",
+	"headless_mode": true,
+	"download_all_ext": true,
+	"download_all_courses": true,
+	"ext_list": [],
+	"ext_expel_list": [],
+	"cid_list": []
+}
+```
+
+将 `your_username` 与 `your_password` （保留双引号）替换成你的**手机号**和**教学立方登录密码**即可，其他参数无需修改。
+
+> 请确保json文件格式正确，可参考提供的 `config_example.json` 进行配置。
+
 ## 配置文件说明
 
-以下对 `config_example.json` 内各项参数进行简要说明：
+以下对 `config.json` 内各项参数进行简要说明：
 
 | 参数名               | 类型 | 含义                                                |
 | -------------------- | ---- | --------------------------------------------------- |
