@@ -8,16 +8,15 @@
 
 
 
-## 使用说明
+## 使用方法
 
 1. 配置Python环境
 
 - Python 3.7.4
 - Requests 2.22.0
 - Selenium 3.141.0
-  - 基于Chrome + ChromeDriver，其中Chrome版本75.0.3770.142，ChromeDriver版本与Chrome一致
+  - 基于Chrome + ChromeDriver，其中Chrome版本75.0.3770.142，ChromeDriver版本与Chrome一致修改配置文件 `config.json` ，填入用户名、密码等信息
 
-	2. 修改配置文件 `config.json` ，填入用户名、密码等信息
  	3. 运行 `download.py` 
 
 ## 项目结构介绍
@@ -52,7 +51,7 @@
    2. `ext_list` = `[zip]`
 
 2. 课程ID在课程主页地址中查看
-   ![image-20200331150145159](C:\Users\Null_42\AppData\Roaming\Typora\typora-user-images\image-20200331150145159.png)
+   ![](./figure/0.png)
    如图，对应的课程id为**8261**
 
    
