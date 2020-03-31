@@ -52,6 +52,7 @@ driver = webdriver.Chrome(options=opt, desired_capabilities=caps)
 
 # Login to Pedagogy Square
 driver.get(login_url)
+time.sleep(1)
 
 driver.find_element_by_xpath(r"/html/body/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/input").send_keys(user_name) # Send username
 driver.find_element_by_xpath(r'//*[@id="id_login_password"]').send_keys(user_passwd) # Send password
