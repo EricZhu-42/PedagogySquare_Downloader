@@ -2,7 +2,18 @@
 
 在线教学平台——[教学立方](teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **ChromeDriver**
 
-> 更新日期：2020-03-31
+> 创建日期：2020-03-30  
+> 更新日期：2020-03-31  
+
+## 程序特色
+
+1. **一键下载**所有课程的全部课件，方便快捷
+2. **可下载老师未开放下载的课件**，视频等内容
+3. **可深度配置**的课程筛选/文件拓展名筛选功能
+
+以下为运行过程中控制台截图示例：
+
+![](./figure/1.png)
 
 ## 开发环境
 
@@ -33,7 +44,7 @@
 
 3. 安装Chrome，并下载Chrome对应版本的[WebDriver](https://chromedriver.chromium.org/)
 
-   > 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
+> 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
 
 ### 2. 修改配置文件
 
@@ -45,6 +56,8 @@
 ### 3. 运行脚本
 
 运行 `download.py` 
+
+> 注：若运行过程中出现下载速度过慢等现象，可能是由于与教学立方网站连接不稳定，请尝试重新运行脚本。
 
 ## 项目结构介绍
 
@@ -103,6 +116,6 @@
 
 ## 版权信息
 
-作者：Zhuxinhao00@gmail.com
+联系邮箱：zhuxinhao00@gmail.com
 
 本项目基于MIT协议开源

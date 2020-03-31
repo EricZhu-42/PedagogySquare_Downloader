@@ -32,7 +32,6 @@ download_all_courses = config.get('download_all_courses')
 ext_list = config.get('ext_list')
 ext_expel_list = config.get('ext_expel_list')
 cid_list = config.get('cid_list')
-chunk_size = 10240
 
 # Some metadata
 login_url = r"https://teaching.applysquare.com/Home/User/login"
@@ -129,6 +128,7 @@ for cid in cid_list:
 
             with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
                 content_size = int(res.headers['content-length'])
+                chunk_size = min(content_size, 10240)
                 with open(filename, "wb") as f:
                     chunk_count = 0
                     start_time = time.time()

@@ -1,0 +1,17 @@
+{
+	"username": "13500000000",
+	"password": "somepwd",
+	"headless_mode": true,
+    "download_all_ext": true,
+    "download_all_courses": true,
+	"ext_list": [
+		"pdf"
+    ],
+    "ext_expel_list": [
+        "zip"
+    ],
+	"cid_list": [
+		5878,
+		8261
+	]
+}
