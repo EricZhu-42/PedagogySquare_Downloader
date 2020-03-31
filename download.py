@@ -96,6 +96,7 @@ if download_all_courses:
     cid_list = cid2name_dict.keys()
 
 for cid in cid_list:
+    cid = str(cid) # Prevent bug caused by wrong type of cid
     course_name = filename_filter(cid2name_dict[cid])
 
     # Create dir for this course
