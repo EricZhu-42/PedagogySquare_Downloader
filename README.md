@@ -1,27 +1,40 @@
 # 教学立方课件下载器
 
-在线教学平台——[教学立方](teaching.applysquare.com)的课件批量下载脚本
+在线教学平台——[教学立方](teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **ChromeDriver**
 
 > 更新日期：2020-03-31
 
-## 软件特色
+## 开发环境
 
+开发过程中使用的环境与第三方模块版本如下：
 
+- **Python** = 3.7.4
+
+- **Requests** = 2.22.0
+
+- **Selenium** = 3.141.0
+
+使用的浏览器与WebDriver为：
+
+- **Chrome** = 75.0.3770.142，包含对应版本的ChromeDriver
+
+> **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
+>
+> 针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数
+>
 
 ## 使用方法
 
-### 1. 配置Python环境
+### 1. 配置环境（请参考其他教程）
 
-开发过程中使用的环境与第三方模块版本如下。
+1. 安装对应版本的Python
 
-- **Python** = 3.7.4
-- **Requests** = 2.22.0
-- **Selenium** = 3.141.0
-  - 基于Chrome + ChromeDriver，其中Chrome版本75.0.3770.142，ChromeDriver版本与Chrome一致
+2. 安装对应版本的Python模块：Requests, Selenium（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
 
-> **理论上**该脚本**兼容**其他版本的Python环境或其他类型的WebDriver，但请在发生错误时关注兼容性问题
->
-> 另：提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
+3. 安装Chrome，并下载Chrome对应版本的[WebDriver](https://chromedriver.chromium.org/)
+
+   > 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[该镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，与脚本放在同一目录即可。
+
 ### 2. 修改配置文件
 
 修改文件 `config.json` ，填入用户名、密码等信息
@@ -35,11 +48,12 @@
 
 ## 项目结构介绍
 
-| 文件名              | 功能               |
-| ------------------- | ------------------ |
-| download.py         | 脚本执行入口       |
-| config.json         | 执行参数的配置文件 |
-| config_example.json | 样例配置文件       |
+| 文件名              | 功能                     |
+| ------------------- | ------------------------ |
+| /figure             | 脚本说明中用到的图片文件 |
+| download.py         | 脚本运行入口             |
+| config.json         | 执行参数的配置文件       |
+| config_example.json | 供参考的样例配置文件     |
 
 ## 最简配置方案
 
@@ -56,7 +70,7 @@
 }
 ```
 
-将 `your_username` 与 `your_password` （保留双引号）替换成你的**手机号**和**教学立方登录密码**即可，其他参数无需修改。
+将 `your_username` 与 `your_password` （**保留双引号**）替换成你的**手机号**和**教学立方登录密码**即可，其他参数无需修改。
 
 > 请确保json文件格式正确，可参考提供的 `config_example.json` 进行配置。
 
@@ -77,18 +91,18 @@
 
 #### 注意：
 
-1. 文件类型参数优先级为：`ext_expel_list` > `download_all_ext` > `ext_list`
+1. 文件类型参数优先级为：`ext_expel_list` > `download_all_ext` > `ext_list`  
    即：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
 
    1. `download_all_ext` = `true`
    2. `ext_list` = `[zip]`
 
-2. 课程ID在课程主页地址中查看
-   ![](./figure/0.png)
-   如图，对应的课程id为**8261**
-
-   
+2. 课程ID在课程主页地址中查看，例如：  
+   ![](./figure/0.png)  
+   图中对应的课程id为**8261**
 
 ## 版权信息
 
-#### 作者：
+作者：Zhuxinhao00@gmail.com
+
+本项目基于MIT协议开源

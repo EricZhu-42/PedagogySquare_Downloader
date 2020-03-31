@@ -1,4 +1,14 @@
 # -*- coding: UTF-8 -*-
+"""
+@FileName: download.py
+
+@Author：zhuxinhao00@gmail.com
+
+@Create date: 2020/3/31
+
+@description: A script to download file automatically from teaching.applysquare.com
+"""
+
 import json
 import logging
 import os
