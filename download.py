@@ -42,7 +42,6 @@ cid_list = config.get('cid_list')
 
 # Some metadata
 login_url = r"https://teaching.applysquare.com/Home/User/login"
-class_url_fmt = r"https://teaching.applysquare.com/S/Course/index/cid/{}#S-Course-info"
 attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/ajaxGetList/token/{}?p={}&status=1&plan_id=-1&all=0&pub_stat=1&uid={}&cid={}'
 course_info_url_fmt = r'https://teaching.applysquare.com/Api/Public/getIndexCourseList/token/{}?type=1&usertype=1&uid={}'
 token_pattern = r'(https://teaching\.applysquare\.com/Api/Public/getIndexCourseList/token/.*?)"'
@@ -149,8 +148,8 @@ for cid in cid_list:
                         if chunk_count < 5:
                             print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%)".format(total, processed, processed/total*100), end = '\r')
                         else:
-                            ETA = (current_time-start_time)/processed*(total-processed)
-                            print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%), ETA {:.2f}s".format(total, processed, processed/total*100, ETA), end = '\r')
+                            remaining = (current_time-start_time)/processed*(total-processed)
+                            print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%), in {:.2f}s".format(total, processed, processed/total*100, remaining), end = '\r')
                         f.write(data)
 
     os.chdir(r'../') # Switch directory
