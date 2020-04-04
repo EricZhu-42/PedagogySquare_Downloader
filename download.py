@@ -40,6 +40,9 @@ ext_list = config.get('ext_list')
 ext_expel_list = config.get('ext_expel_list')
 cid_list = config.get('cid_list')
 
+# auto_restart = True
+# speed_threshold = 50 * 1024
+
 # Some metadata
 login_url = r"https://teaching.applysquare.com/Home/User/login"
 attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/ajaxGetList/token/{}?p={}&status=1&plan_id=-1&all=0&pub_stat=1&uid={}&cid={}'
@@ -128,18 +131,26 @@ for cid in cid_list:
         if (entry.get('ext') not in ext_expel_list) and (download_all_ext or entry.get('ext') in ext_list):
             filename = filename_filter(entry.get('filename'))
             filesize = entry.get('size')
-            if filename in os.listdir():
-                print("File \"{}\" already exists!".format(filename))
-                continue
-            else:
-                print("Downloading {}, filesize = {}".format(filename, filesize))
 
             with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
                 content_size = eval(res.headers['content-length'])
+
+                if filename in os.listdir():
+                    # If file is up-to date, continue; else, delete and re-download
+                    if os.path.getsize(filename) == content_size:
+                        print("File \"{}\" is up-to-date".format(filename))
+                        continue
+                    else:
+                        print("Updating File {}".format(filename))
+                        os.remove(filename)
+
+                print("Downloading {}, filesize = {}".format(filename, filesize))
                 chunk_size = min(content_size, 10240)
                 with open(filename, "wb") as f:
                     chunk_count = 0
                     start_time = time.time()
+                    # previous_time = time.time()
+                    # lag_counter = 0
                     total = content_size / 1024 / 1024
                     for data in res.iter_content(chunk_size=chunk_size):
                         chunk_count += 1
@@ -151,6 +162,17 @@ for cid in cid_list:
                             remaining = (current_time-start_time)/processed*(total-processed)
                             print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%), in {:.2f}s".format(total, processed, processed/total*100, remaining), end = '\r')
                         f.write(data)
+
+                        # speed = chunk_size / 1.0 * (current_time - previous_time)
+                        # if speed < speed_threshold:
+                        #     lag_counter += 1
+                        # else:
+                        #     lag_counter = 0
+
+                        # if lag_counter > 10:
+                        #     print("Restart downloading of file {}".format(filename))
+                        #     attachment_list.append(entry)
+                        #     continue
 
     os.chdir(r'../') # Switch directory
 
