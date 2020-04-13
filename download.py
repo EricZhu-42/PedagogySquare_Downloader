@@ -45,7 +45,7 @@ cid_list = config.get('cid_list')
 
 # Some metadata
 login_url = r"https://teaching.applysquare.com/Home/User/login"
-attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/ajaxGetList/token/{}?p={}&status=1&plan_id=-1&all=0&pub_stat=1&uid={}&cid={}'
+attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/getList/token/{}?p={}&status=1&plan_id=-1&all=0&pub_stat=1&uid={}&cid={}'
 course_info_url_fmt = r'https://teaching.applysquare.com/Api/Public/getIndexCourseList/token/{}?type=1&usertype=1&uid={}'
 token_pattern = r'(https://teaching\.applysquare\.com/Api/Public/getIndexCourseList/token/.*?)"'
 
@@ -114,22 +114,24 @@ for cid in cid_list:
     driver.get(attachment_info_url)
     raw_info = re.search(r'\{.*\}', driver.page_source).group(0)
     info = json.loads(raw_info).get('message')
-    total_pages = info.get('total_pages')
+    file_num = info.get('count')
     print("\nDownloading files of course {}".format(course_name))
-    print("Get {:d} files".format(info.get('total')))
+    print("Get {:d} files".format(file_num))
 
+    current_page = 1
     # Add attachment path to attachment_list
-    for current_page in range(1, total_pages+1):
+    while len(attachment_list) < file_num:
         current_url = attachment_url_fmt.format(token, current_page, uid, cid)
         driver.get(current_url)
         raw_info  = re.search(r'\{.*\}', driver.page_source).group(0)
         info = json.loads(raw_info).get('message')
-        attachment_list.extend(info.get('rows'))
+        attachment_list.extend(info.get('list'))
+        current_page += 1
 
     # Download attachments
     for entry in attachment_list:
         if (entry.get('ext') not in ext_expel_list) and (download_all_ext or entry.get('ext') in ext_list):
-            filename = filename_filter(entry.get('filename'))
+            filename = filename_filter("{}.{}".format(entry.get('title'), entry.get('ext')))
             filesize = entry.get('size')
 
             with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
