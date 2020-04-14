@@ -148,7 +148,7 @@ for cid in cid_list:
         if (ext == 'dir') or (ext in ext_expel_list) or (not download_all_ext and ext not in ext_list):
             continue
 
-        filename = filename_filter("{}.{}".format(entry.get('title'), entry.get('ext')))
+        filename = filename_filter("{}.{}".format(entry.get('title'), ext))
         filesize = entry.get('size')
 
         with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
@@ -179,7 +179,7 @@ for cid in cid_list:
                         print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%)".format(total, processed, processed/total*100), end = '\r')
                     else:
                         remaining = (current_time-start_time)/processed*(total-processed)
-                        print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%), in {:.2f}s".format(total, processed, processed/total*100, remaining), end = '\r')
+                        print(r"    Total: {:.2f} MB  Processed: {:.2f} MB ({:.2f}%), ETA {:.2f}s".format(total, processed, processed/total*100, remaining), end = '\r')
                     f.write(data)
 
                     # speed = chunk_size / 1.0 * (current_time - previous_time)
