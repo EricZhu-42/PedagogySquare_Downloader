@@ -4,7 +4,9 @@
 
 @Author：zhuxinhao00@gmail.com
 
-@Create date: 2020/3/31
+@Create date: 2020/03/31
+
+@Modified date: 2020/04/16
 
 @description: A script to download file automatically from teaching.applysquare.com
 """
@@ -85,7 +87,7 @@ time.sleep(1)
 driver.find_element_by_xpath(r"/html/body/div[2]/div/div[2]/div/div/div/div/div[2]/div/div/div[1]/input").send_keys(user_name) # Send username
 driver.find_element_by_xpath(r'//*[@id="id_login_password"]').send_keys(user_passwd) # Send password
 driver.find_element_by_xpath(r'//*[@id="id_login_button"]').click() # Submit
-print("Login Successfully!")
+time.sleep(0.5)
 
 # Dealing with student-teacher selection
 try:
@@ -93,6 +95,13 @@ try:
     driver.find_element_by_xpath(r'/html/body/div[2]/div/div[2]/div/div/div[1]/div[4]/a').click() # Submit
 except Exception:
     pass
+
+time.sleep(0.5)
+if (driver.current_url == r'https://teaching.applysquare.com/S/Index/index'):
+    print("Login Successfully!")
+else:
+    print("Login Error --- Please check your username & password")
+    print("Disable headless mode for detailed information")
 
 # Get token for authorization
 token = None
@@ -148,7 +157,11 @@ for cid in cid_list:
         if (ext == 'dir') or (ext in ext_expel_list) or (not download_all_ext and ext not in ext_list):
             continue
 
-        filename = filename_filter("{}.{}".format(entry.get('title'), ext))
+        if (ext in entry.get('title')):
+            filename = filename_filter(entry.get('title'))
+        else:
+            filename = filename_filter("{}.{}".format(entry.get('title'), ext))
+
         filesize = entry.get('size')
 
         with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
