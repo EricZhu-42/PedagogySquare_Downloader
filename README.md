@@ -7,7 +7,7 @@
 
 ## 版本更新信息（重要！）
 
-1. 已于4月16日上午发布最新版本的release包，**请于4月14日前获取代码的同学重新下载脚本**。
+1. 已于4月16日上午发布最新版本的release包，**请于4月14日前获取代码的同学重新**[**下载脚本**](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.2_stable/PedagogySquare_Downloader_20200416.zip)。
 2. 当前**已适配最新的教学立方4.2版本**（推出于**2020年4月10日**），且增加了对课件文件夹的支持
 
 ## 程序特色
