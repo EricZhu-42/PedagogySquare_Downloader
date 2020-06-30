@@ -3,7 +3,7 @@
 在线教学平台——[教学立方](teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **ChromeDriver**
 
 > 创建日期：2020-03-30  
-> 更新日期：2020-04-16
+> 更新日期：2020-06-30
 
 ## 版本更新信息（重要！）
 
@@ -117,7 +117,7 @@
    如：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
 
    - `download_all_ext` = `true`
-   - `ext_list` = `["zip"]`
+   - `ext_expel_list` = `["zip"]`
 
 2. 课程ID在课程主页地址中查看，例如：  
    ![](./figure/0.png)  
