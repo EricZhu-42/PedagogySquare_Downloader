@@ -7,7 +7,7 @@
 
 ## 版本更新信息（重要！）
 
-1. 已于7月2日中午发布最新版本的release包，**请于7月2日前获取代码的同学重新**[**下载脚本**]()。
+1. 已于7月2日中午发布最新版本的release包，**请于7月2日前获取代码的同学重新**[**下载脚本**](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.3_stable/PedagogySquare_Downloader_20200702.zip)。
 2. 已**修复教学立方版本更新导致无法正常下载课件的问题**，且进行了稳定性优化。
 
 ## 程序特色
