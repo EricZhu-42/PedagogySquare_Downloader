@@ -6,7 +6,7 @@
 
 @Create date: 2020/03/31
 
-@Modified date: 2020/04/16
+@Modified date: 2020/07/02
 
 @description: A script to download file automatically from teaching.applysquare.com
 """
@@ -68,6 +68,7 @@ cid_list = config.get('cid_list')
 login_url = r"https://teaching.applysquare.com/Home/User/login"
 attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/getList/token/{}?parent_id={}&page={}&plan_id=-1&uid={}&cid={}'
 course_info_url_fmt = r'https://teaching.applysquare.com/Api/Public/getIndexCourseList/token/{}?type=1&usertype=1&uid={}'
+attachment_detail_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/ajaxGetInfo/token/{}?id={}&uid={}&cid={}'
 token_pattern = r'(https://teaching\.applysquare\.com/Api/Public/getIndexCourseList/token/.*?)"'
 
 # Start the webdriver
@@ -164,8 +165,21 @@ for cid in cid_list:
 
         filesize = entry.get('size')
 
+        # Get download url for un-downloadable files
+        if (entry.get('can_download') == '0'):
+            attachment_detail_url = attachment_detail_url_fmt.format(token, entry.get('id'), uid, cid)
+            driver.get(attachment_detail_url)
+            raw_info  = re.search(r'\{.*\}', driver.page_source).group(0)
+            info = json.loads(raw_info).get('message')
+            entry['path'] = info.get('path')
+
         with closing(requests.get(entry.get('path').replace('amp;', ''), stream=True)) as res:
-            content_size = eval(res.headers['content-length'])
+
+            try:
+                content_size = eval(res.headers['content-length'])
+            except Exception:
+                print("Failed to get content length of file {}, please download it manually.".format(filename))
+                continue
 
             if filename in os.listdir():
                 # If file is up-to date, continue; else, delete and re-download
