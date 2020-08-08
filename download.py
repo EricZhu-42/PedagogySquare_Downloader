@@ -128,7 +128,11 @@ if download_all_courses:
 
 for cid in cid_list:
     cid = str(cid) # Prevent bug caused by wrong type of cid
-    course_name = filename_filter(cid2name_dict[cid])
+    try:
+        course_name = filename_filter(cid2name_dict[cid])
+    except KeyError:
+        print("Can't find course name for cid {}, maybe it's a legacy course?".format(cid))
+        course_name = "CID_{}".format(cid)
     print("\nDownloading files of course {}".format(course_name))
 
     # Create dir for this course
