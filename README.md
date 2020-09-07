@@ -3,12 +3,13 @@
 在线教学平台——[教学立方](teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **ChromeDriver**
 
 > 创建日期：2020-03-30  
-> 更新日期：2020-08-09
+> 更新日期：2020-09-07
 
 ## 版本更新信息（重要！）
 
 1. 已于7月2日中午发布最新版本的release包，**请于7月2日前获取代码的同学重新**[**下载脚本**](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.3_stable/PedagogySquare_Downloader_20200702.zip)。
 2. 已**修复教学立方版本更新导致无法正常下载课件的问题**，且进行了稳定性优化。
+3. **（9月7日更新）已发布最新的预览版脚本，解除了对ChromeDriver与Selenium的依赖，目前仅需安装Requests即可正常使用，推荐更新脚本代码进行体验。在确认该版本运行正常后，将发布新的release包。随时欢迎反馈！**
 
 ## 程序特色
 
