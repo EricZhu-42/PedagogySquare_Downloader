@@ -6,7 +6,7 @@
 
 @Create date: 2020/03/31
 
-@Modified date: 2020/09/07
+@Modified date: 2020/09/14
 
 @description: A script to download file automatically from teaching.applysquare.com
 """

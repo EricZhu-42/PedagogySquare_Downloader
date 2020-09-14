@@ -1,15 +1,19 @@
 # 教学立方课件下载器
 
-在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **ChromeDriver**
+在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **Requests**
 
 > 创建日期：2020-03-30  
-> 更新日期：2020-09-07
+> 更新日期：2020-09-14
 
 ## 版本更新信息（重要！）
 
-1. 已于7月2日中午发布最新版本的release包，**请于7月2日前获取代码的同学重新**[**下载脚本**](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.3_stable/PedagogySquare_Downloader_20200702.zip)。
+1. 已于9月14日晚发布最新版本的release包，请**于9月14日前获取代码**的同学重新[下载脚本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)。
+
 2. 已**修复教学立方版本更新导致无法正常下载课件的问题**，且进行了稳定性优化。
-3. **（9月7日更新）已发布最新的预览版脚本，解除了对ChromeDriver与Selenium的依赖，目前仅需安装Requests即可正常使用，推荐更新脚本代码进行体验。在确认该版本运行正常后，将发布新的release包。随时欢迎反馈！**
+
+3. 当前版本的脚本**解除了先前版本对ChromeDriver与Selenium的依赖**，目前**仅需安装Requests即可正常使用**。
+
+   > 如果更新后的脚本无法正常使用，请尝试回退至[旧版本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.3_stable/PedagogySquare_Downloader_20200702.zip)，观察问题是否解决，并联系开发者反馈问题，感谢！
 
 ## 程序特色
 
@@ -33,16 +37,8 @@
 
 - **Requests** = 2.22.0
 
-- **Selenium** = 3.141.0
-
-使用的浏览器与WebDriver为：
-
-- **Chrome** = 83.0.4103.116，包含对应版本的ChromeDriver
 
 > **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
->
-> 该脚本针对Chrome + ChromeDriver开发，如使用其他Browser + WebDriver组合需要修改脚本中的WebDriver参数  
-（更新：**Chromium Edge** + ChromeDriver **可以**正常使用该脚本）
 
 ## 使用方法
 
@@ -50,11 +46,8 @@
 
 1. 安装对应版本的Python
 
-2. 安装对应版本的Python模块：Requests, Selenium（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
+2. 安装对应版本的Python模块：Requests（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
 
-3. 安装Chrome，并下载Chrome[对应版本的WebDriver](https://chromedriver.chromium.org/downloads)
-
-> 提供一种安装ChromeDriver的简单方法：根据自己的Chrome版本，在[镜像站点](http://npm.taobao.org/mirrors/chromedriver/)下载对应版本的ChromeDriver，**与脚本放在同一目录**即可。
 
 ### 2. 修改配置文件
 
@@ -84,7 +77,6 @@
 {
 	"username": "your_username",
 	"password": "your_password",
-	"headless_mode": true,
 	"download_all_ext": true,
 	"download_all_courses": true,
 	"ext_list": [],
@@ -105,7 +97,6 @@
 | -------------------- | ---- | --------------------------------------------------- |
 | username             | str  | 教学立方登录用户名（一般为手机号）                  |
 | password             | str  | 教学立方登录密码                                    |
-| headless_mode        | bool | 是否启用WebDriver的headless模式（运行时不显示界面） |
 | download_all_ext     | bool | 是否下载所有类型的文件                              |
 | download_all_courses | bool | 是否下载所有课程的课件                              |
 | ext_list             | list | 下载文件的类型（如：pdf，docx，zip）                |
