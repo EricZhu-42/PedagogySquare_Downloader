@@ -1,7 +1,6 @@
 {
 	"username": "13500000000",
 	"password": "somepwd",
-	"headless_mode": true,
     "download_all_ext": true,
     "download_all_courses": true,
 	"ext_list": [

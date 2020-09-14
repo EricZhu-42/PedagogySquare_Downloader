@@ -57,7 +57,6 @@ with open('config.json', 'r') as f:
     config = json.loads(f.read())
     user_name = config.get('username')
     user_passwd = config.get('password')
-    headless_mode = config.get('headless_mode')
     download_all_ext = config.get('download_all_ext')
     download_all_courses = config.get('download_all_courses')
     ext_list = config.get('ext_list')
