@@ -7,7 +7,7 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/EricZhu-42/PedagogySquare_Downloader">
   </br>
   <img alt="GitHub stars" src="https://img.shields.io/github/stars/EricZhu-42/PedagogySquare_Downloader">
-  <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/EricZhu-42/PedagogySquare_Downloader/total">'
+  <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/EricZhu-42/PedagogySquare_Downloader/total">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/EricZhu-42/PedagogySquare_Downloader">
   <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed-raw/EricZhu-42/PedagogySquare_Downloader">
   <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
