@@ -81,7 +81,13 @@ login_request = sess.post(login_url, data={"email" : user_name, "password" : hex
 login_response = login_request.json()
 login_info = login_response['message']
 
-token = login_info['token']
+try:
+    token = login_info['token']
+except TypeError:
+    print("Login Failed, please check your username & password")
+    print("Login info received: {}".format(login_info))
+    exit()
+
 uid = login_info['uid']
 print("Login successfully!")
 
