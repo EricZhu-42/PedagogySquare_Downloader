@@ -1,5 +1,5 @@
 <p align="center">
-	
+
   <img alt="GitHub" src="https://img.shields.io/github/license/EricZhu-42/PedagogySquare_Downloader">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EricZhu-42/PedagogySquare_Downloader">	
   <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/EricZhu-42/PedagogySquare_Downloader">
@@ -11,7 +11,7 @@
   <img alt="GitHub issues" src="https://img.shields.io/github/issues-raw/EricZhu-42/PedagogySquare_Downloader">
   <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed-raw/EricZhu-42/PedagogySquare_Downloader">
   <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
-  
+
 </p>
 
 # 教学立方课件下载器
@@ -19,7 +19,7 @@
 在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **Requests**
 
 > 创建日期：2020-03-30  
-> 更新日期：2020-09-14
+> 更新日期：2020-09-16
 
 ## 版本更新信息（重要！）
 

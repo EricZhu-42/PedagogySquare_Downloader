@@ -20,6 +20,8 @@ import time
 from contextlib import closing
 
 import requests
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 # Get Hex-md5 encoded password
@@ -38,7 +40,7 @@ def filename_filter(name:str):
 def construct_attchment_list(sess, token, pid, uid, cid):
     attachment_list = list()
     attachment_info_url = attachment_url_fmt.format(token, pid, 1, uid, cid)
-    r = sess.get(attachment_info_url)
+    r = sess.get(attachment_info_url, verify=False)
     info = r.json()['message']
     file_num = info.get('count')
 
@@ -46,7 +48,7 @@ def construct_attchment_list(sess, token, pid, uid, cid):
     # Add attachment path to attachment_list
     while len(attachment_list) < file_num:
         current_url = attachment_url_fmt.format(token, pid, current_page, uid, cid)
-        r = sess.get(current_url)
+        r = sess.get(current_url, verify=False)
         info = r.json()['message']
         attachment_list.extend(info.get('list'))
         current_page += 1
@@ -74,7 +76,7 @@ sess = requests.Session()
 
 # Login in
 print("Trying to log in, please wait ...")
-login_request = sess.post(login_url, data={"email" : user_name, "password" : hex_md5_stringify(user_passwd)})
+login_request = sess.post(login_url, data={"email" : user_name, "password" : hex_md5_stringify(user_passwd)}, verify=False)
 
 login_response = login_request.json()
 login_info = login_response['message']
@@ -85,7 +87,7 @@ print("Login successfully!")
 
 cid2name_dict = dict()
 course_info_url = course_info_url_fmt.format(token, uid)
-r = sess.get(course_info_url)
+r = sess.get(course_info_url, verify=False)
 info = r.json()["message"]
 for entry in info:
     cid2name_dict[entry.get('cid')] = entry.get('name')
@@ -139,7 +141,7 @@ for cid in cid_list:
         # Get download url for un-downloadable files
         if (entry.get('can_download') == '0'):
             attachment_detail_url = attachment_detail_url_fmt.format(token, entry.get('id'), uid, cid)
-            r = sess.get(attachment_detail_url)
+            r = sess.get(attachment_detail_url, verify=False)
             info = r.json()['message']
             entry['path'] = info.get('path')
 
