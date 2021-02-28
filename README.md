@@ -23,7 +23,7 @@
 
 ## 版本更新信息（重要！）
 
-1. 已于9月14日晚发布最新版本的release包，请**于9月14日前获取代码**的同学重新[下载脚本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)。
+1. 已于2020年9月14日晚发布最新版本的release包，请**于9月14日前获取代码**的同学重新[下载脚本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)。
 
 2. 已**修复教学立方版本更新导致无法正常下载课件的问题**，且进行了稳定性优化。
 
@@ -45,7 +45,7 @@
 > 请尊重教师的知识产权与劳动成果。除非获得教师许可，请勿将下载得到的文件在互联网上进行传播  
 > 如本程序损害了您的权益，请联系作者删除相关代码  
 
-## 开发环境
+## 运行环境
 
 开发过程中使用的环境与第三方模块版本如下：
 
@@ -53,8 +53,9 @@
 
 - **Requests** = 2.22.0
 
+为了正常运行脚本，请安装**不低于**以上版本的Python与Requests
 
-> **理论上**该脚本**兼容**其他版本的Python环境（新的一般没问题，旧一点的应该也行），但请在发生错误时关注兼容性问题
+> 另：经测试，**该脚本可在移动端的终端模拟器中正常运行**；安卓平台执行Python脚本可以参考[@OrangeX4](https://github.com/OrangeX4)提供的[工具与教程]。(https://orangex.orangex4.cool/)
 
 ## 使用方法
 
