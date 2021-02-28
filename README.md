@@ -55,7 +55,7 @@
 
 为了正常运行脚本，请安装**不低于**以上版本的Python与Requests
 
-> 另：经测试，**该脚本可在移动端的终端模拟器中正常运行**；安卓平台执行Python脚本可以参考[@OrangeX4](https://github.com/OrangeX4)提供的[工具与教程]。(https://orangex.orangex4.cool/)
+> 另：经测试，**该脚本可在移动端的终端模拟器中正常运行**；安卓平台执行Python脚本可以参考[@OrangeX4](https://github.com/OrangeX4)提供的[工具与教程](https://orangex.orangex4.cool/)。
 
 ## 使用方法
 
