@@ -27,9 +27,9 @@
 
 在2021年3月1日发布的pre-release中，我们为**Windows平台**用户提供了封装后的**独立可执行程序**（standalone executable）。**无需安装配置Python环境即可使用封装后的课件下载工具**，具体的使用方法为：
 
-1. 下载并解压最新的pre-release文件包，进入解压后的文件夹
-2. 参照下文“最简配置方案”一节，修改文件 `config.json` ，填入用户名、密码等信息
-3. 双击执行 `run.bat`，等待课件下载完成
+1. 下载并解压最新的pre-release文件包（[下载地址](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5_alpha/PedagogySquare_Downloader_20210301_alpha.zip)，或通过[国内镜像地址](https://box.nju.edu.cn/f/795075a0aa5340cdb763/?dl=1)下载），并进入解压后的文件夹
+3. 参照下文“最简配置方案”一节，修改文件 `config.json` ，填入用户名、密码等信息
+4. 双击执行 `run.bat`，等待课件下载完成
 
 此外，新版本脚本优化了 `config.json` 的配置逻辑，推荐参考下文“配置文件说明”一节重新进行配置。
 
