@@ -1,16 +1,6 @@
 {
 	"username": "13500000000",
-	"password": "somepwd",
-    "download_all_ext": true,
-    "download_all_courses": true,
-	"ext_list": [
-		"pdf"
-    ],
-    "ext_expel_list": [
-        "zip"
-    ],
-	"cid_list": [
-		5878,
-		8261
-	]
+	"password": "somepassword",
+    "ext_expel_list": ["mp4", "pdf"],
+	"cid_expel_list": [12102]
 }

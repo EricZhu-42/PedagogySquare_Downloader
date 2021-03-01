@@ -19,17 +19,19 @@
 在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **Requests**
 
 > 创建日期：2020-03-30  
-> 更新日期：2021-02-28
+> 更新日期：2021-03-01
 
-## 版本更新信息（重要！）
+## 版本更新信息
 
-1. 已于2020年9月14日晚发布最新版本的release包，请**于9月14日前获取代码**的同学重新[下载脚本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)。
+**TLDR: 当前版本做了脚本封装，现在Windows平台下不安装Python环境也能用了**
 
-2. 已**修复教学立方版本更新导致无法正常下载课件的问题**，且进行了稳定性优化。
+在2021年3月1日发布的pre-release中，我们为**Windows平台**用户提供了封装后的**独立可执行程序**（standalone executable）。**无需安装配置Python环境即可使用封装后的课件下载工具**，具体的使用方法为：
 
-3. 当前版本的脚本**解除了先前版本对ChromeDriver与Selenium的依赖**，目前**仅需安装Requests即可正常使用**。
+1. 下载并解压最新的pre-release文件包，进入解压后的文件夹
+2. 参照下文“最简配置方案”一节，修改文件 `config.json` ，填入用户名、密码等信息
+3. 双击执行 `run.bat`，等待课件下载完成
 
-   > 如果更新后的脚本无法正常使用，请尝试回退至[旧版本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.3_stable/PedagogySquare_Downloader_20200702.zip)，观察问题是否解决，并联系开发者反馈问题，感谢！
+> 如果更新后的脚本无法正常使用，请尝试回退至[旧版本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)，观察问题是否解决，并联系开发者反馈问题，感谢！
 
 ## 程序特色
 
@@ -63,15 +65,15 @@
 
 1. 安装对应版本的Python
 
-2. 安装对应版本的Python模块：Requests（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
+2. 安装对应版本的Python模块：**Requests**（推荐使用[Anaconda](https://www.anaconda.com/)进行管理）
 
 
 ### 2. 修改配置文件
 
 修改文件 `config.json` ，填入用户名、密码等信息
 
-> 关于如何修改配置文件，请参考”最简配置方案“一章  
-> 关于配置文件内各项参数的说明，请参考”配置文件说明“一章  
+> 关于如何修改配置文件，请参考“最简配置方案”一章  
+> 关于配置文件内各项参数的说明，请参考“配置文件说明”一章  
 
 ### 3. 运行脚本
 
@@ -94,15 +96,12 @@
 {
 	"username": "your_username",
 	"password": "your_password",
-	"download_all_ext": true,
-	"download_all_courses": true,
-	"ext_list": [],
 	"ext_expel_list": [],
-	"cid_list": []
+	"cid_expel_list": []
 }
 ```
 
-将 `your_username` 与 `your_password` （**保留双引号**）替换成你的**手机号**和**教学立方登录密码**即可，其他参数无需修改。
+将 `your_username` 与 `your_password` （**注意保留外部的双引号**）替换成你的**手机号**和**教学立方登录密码**即可，其他参数无需修改。
 
 > 请确保json文件格式正确，可参考提供的 `config_example.json` 进行配置。
 
@@ -114,19 +113,14 @@
 | -------------------- | ---- | --------------------------------------------------- |
 | username             | str  | 教学立方登录用户名（一般为手机号）                  |
 | password             | str  | 教学立方登录密码                                    |
-| download_all_ext     | bool | 是否下载所有类型的文件                              |
-| download_all_courses | bool | 是否下载所有课程的课件                              |
-| ext_list             | list | 下载文件的类型（如：pdf，docx，zip）                |
-| ext_expel_list       | list | 排除文件的类型                                      |
-| cid_list             | list | 需要下载的课程ID                                    |
+| ext_expel_list       | list | 排除文件的类型列表                                      |
+| cid_expel_list             | list | 排除课程的课程ID列表                                    |
 
 #### 注意：
 
-1. 文件类型参数优先级为：`ext_expel_list` > `download_all_ext` > `ext_list`  
-   如：若希望下载“除了zip格式文件外的所有类型文件“，应设置参数为
-
-   - `download_all_ext` = `true`
-   - `ext_expel_list` = `["zip"]`
+1. 例如：若不需要下载课程ID为 `12345` 的课程，且不需要下载 `pdf` 文件与 `mp4` 文件，可设置为：
+   - `ext_expel_list = ["pdf", "mp4"]`
+   - `cid_expel_list = [12345]`
 
 2. 课程ID在课程主页地址中查看，例如：  
    ![](./figure/0.png)  

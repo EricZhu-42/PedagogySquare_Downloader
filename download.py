@@ -6,7 +6,7 @@
 
 @Create date: 2020/03/31
 
-@Modified date: 2021/02/28
+@Modified date: 2021/03/01
 
 @description: A script to download file automatically from teaching.applysquare.com
 """
@@ -59,11 +59,8 @@ with open('config.json', 'r') as f:
     config = json.loads(f.read())
     user_name = config.get('username')
     user_passwd = config.get('password')
-    download_all_ext = config.get('download_all_ext')
-    download_all_courses = config.get('download_all_courses')
-    ext_list = config.get('ext_list')
     ext_expel_list = config.get('ext_expel_list')
-    cid_list = config.get('cid_list')
+    cid_expel_list = list(map(str, config.get('cid_expel_list')))
 
 # Some metadata
 login_url = r"https://teaching.applysquare.com/Api/User/ajaxLogin"
@@ -98,11 +95,14 @@ info = r.json()["message"]
 for entry in info:
     cid2name_dict[entry.get('cid')] = entry.get('name')
 
-if download_all_courses:
-    cid_list = cid2name_dict.keys()
+cid_list = cid2name_dict.keys()
 
 for cid in cid_list:
     cid = str(cid) # Prevent bug caused by wrong type of cid
+
+    if cid in cid_expel_list:
+        continue
+
     try:
         course_name = filename_filter(cid2name_dict[cid])
     except KeyError:
@@ -134,7 +134,7 @@ for cid in cid_list:
     # Download attachments
     for entry in course_attachment_list:
         ext = entry.get('ext')
-        if (ext == 'dir') or (ext in ext_expel_list) or (not download_all_ext and ext not in ext_list):
+        if (ext == 'dir') or (ext in ext_expel_list):
             continue
 
         if (ext in entry.get('title')):

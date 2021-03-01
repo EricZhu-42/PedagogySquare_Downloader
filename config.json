@@ -1,9 +1,6 @@
 {
 	"username": "your_username",
 	"password": "your_password",
-    "download_all_ext": true,
-    "download_all_courses": true,
-	"ext_list": [],
     "ext_expel_list": [],
-	"cid_list": []
+	"cid_expel_list": []
 }
