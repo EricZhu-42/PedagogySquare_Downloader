@@ -31,6 +31,8 @@
 2. 参照下文“最简配置方案”一节，修改文件 `config.json` ，填入用户名、密码等信息
 3. 双击执行 `run.bat`，等待课件下载完成
 
+此外，新版本脚本优化了 `config.json` 的配置逻辑，推荐参考下文“配置文件说明”一节重新进行配置。
+
 > 如果更新后的脚本无法正常使用，请尝试回退至[旧版本](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.4_stable/PedagogySquare_Downloader_20200914.zip)，观察问题是否解决，并联系开发者反馈问题，感谢！
 
 ## 程序特色
