@@ -2,5 +2,6 @@
 	"username": "13500000000",
 	"password": "somepassword",
     "ext_expel_list": ["mp4", "pdf"],
-	"cid_expel_list": [12102]
+	"cid_expel_list": [12102],
+	"save_path" : ""
 }

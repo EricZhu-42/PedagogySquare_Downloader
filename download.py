@@ -61,9 +61,17 @@ with open('config.json', 'r') as f:
     user_passwd = config.get('password')
     ext_expel_list = config.get('ext_expel_list')
     cid_expel_list = list(map(str, config.get('cid_expel_list')))
+    save_path = config.get('save_path', "")
+
+if save_path:
+    try:
+        os.chdir(save_path)
+    except Exception as e:
+        print('Changing save_path failed for reason \"{}\", using default path instead.'.format(e))
+        time.sleep(2)
 
 # Some metadata
-login_url = r"https://teaching.applysquare.com/Api/User/ajaxLogin"
+login_url = r'https://teaching.applysquare.com/Api/User/ajaxLogin'
 attachment_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/getList/token/{}?parent_id={}&page={}&plan_id=-1&uid={}&cid={}'
 course_info_url_fmt = r'https://teaching.applysquare.com/Api/Public/getIndexCourseList/token/{}?type=1&usertype=1&uid={}'
 attachment_detail_url_fmt = r'https://teaching.applysquare.com/Api/CourseAttachment/ajaxGetInfo/token/{}?id={}&uid={}&cid={}'
