@@ -23,13 +23,16 @@
 
 ## 下载地址
 
-最新版本程序[下载地址](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5/PedagogySquare_Downloader_20210305.zip)，或通过[国内镜像地址](https://box.nju.edu.cn/f/aee6e9a8690a474c84bf/?dl=1)下载
+**更新日期：2020年3月5日**
+
+推荐通过[Github release](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5/PedagogySquare_Downloader_20210305.zip)下载；若连接速度较慢，亦可通过[国内镜像地址](https://box.nju.edu.cn/f/aee6e9a8690a474c84bf/?dl=1)下载。
+
 
 ## 版本更新日志
 
 ### 2021年3月5日：功能性更新
 
-为了方便课件管理，当前版本的 `config.json` 文件中增加了 `save_path` 项（支持绝对路径/相对路径），用来设置下载课件的保存目录。
+为了方便课件管理，当前版本的 `config.json` 文件中增加了 `save_path` 项（支持绝对路径/相对路径），可设置下载文件的保存目录。
 
 请参照下文“配置文件说明”一节，调整下载目录（默认为空，表示下载到脚本的相同目录）
 
@@ -37,7 +40,7 @@
 
 **TLDR: 当前版本做了脚本封装，现在Windows平台下不安装Python环境也能用了**
 
-自2021年3月1日起，我们在release中为**Windows平台**用户提供了封装后的**独立可执行程序**（standalone executable）。**无需安装配置Python环境即可使用封装后的课件下载工具**，具体的使用方法为：
+自2021年3月1日起，我们将在release中为**Windows平台**用户提供封装后的**独立可执行程序**（standalone executable）。**无需安装配置Python环境即可使用封装后的课件下载工具**，具体的使用方法为：
 
 1. 下载并解压最新的release文件包，并进入解压后的文件夹
 3. 参照下文“最简配置方案”一节，修改文件 `config.json` ，填入用户名、密码等信息
@@ -112,7 +115,7 @@
 	"password": "your_password",
 	"ext_expel_list": [],
 	"cid_expel_list": [],
-    "save_path": "" 
+        "save_path": "" 
 }
 ```
 
@@ -132,13 +135,13 @@
 | cid_expel_list             | list | 排除课程的课程ID列表                                    |
 | save_path | str | 下载目录（支持绝对路径或相对路径） |
 
-#### 注意：
+### 注意事项与说明：
 
 1. 例如：若不需要下载课程ID为 `12345` 的课程，且不需要下载 `pdf` 文件与 `mp4` 文件，可设置为：
    - `ext_expel_list = ["pdf", "mp4"]`
    - `cid_expel_list = [12345]`
-2. 在修改下载目录 `save_path` 时，请先在对应的位置**创建文件夹**。如无法找到对应的文件夹，将会在默认目录（程序根目录）保存下载得到的文件。
-3. 课程ID在课程主页地址中查看，例如：  
+2. 在修改下载目录 `save_path` 时，请先在对应的位置**创建文件夹**；如无法找到对应的文件夹，将会在默认目录（程序根目录）保存下载得到的文件。
+4. 课程ID在课程主页地址中查看，例如：  
    ![](./figure/0.png)  
    图中对应课程的ID为**8261**  
 
