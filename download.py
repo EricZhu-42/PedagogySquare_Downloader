@@ -68,7 +68,9 @@ if save_path:
         os.chdir(save_path)
     except Exception as e:
         print('Changing save_path failed for reason \"{}\", using default path instead.'.format(e))
-        time.sleep(2)
+        time.sleep(1)
+
+print("Files will be saved to ", os.getcwd())
 
 # Some metadata
 login_url = r'https://teaching.applysquare.com/Api/User/ajaxLogin'
