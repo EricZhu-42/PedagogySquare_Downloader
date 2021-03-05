@@ -25,7 +25,7 @@
 
 **更新日期：2020年3月5日**
 
-推荐通过[Github release](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5/PedagogySquare_Downloader_20210305.zip)下载；若连接速度较慢，亦可通过[国内镜像地址](https://box.nju.edu.cn/f/aee6e9a8690a474c84bf/?dl=1)下载。
+推荐通过Github release[下载](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5/PedagogySquare_Downloader_20210305.zip)；若连接速度较慢，亦可通过国内镜像地址[下载](https://box.nju.edu.cn/f/aee6e9a8690a474c84bf/?dl=1)。
 
 
 ## 版本更新日志
@@ -36,7 +36,7 @@
 
 请参照下文“配置文件说明”一节，调整下载目录（默认为空，表示下载到脚本的相同目录）
 
-### 2021年3月1日：封装发布
+### 2021年3月1日：Windows平台下的工具封装
 
 **TLDR: 当前版本做了脚本封装，现在Windows平台下不安装Python环境也能用了**
 
