@@ -15,6 +15,7 @@ import hashlib
 import json
 import logging
 import os
+import pathlib
 import re
 import time
 from contextlib import closing
@@ -37,7 +38,7 @@ def filename_filter(name:str):
         name = name.replace(char, ' ')
     return name
 
-def construct_attchment_list(sess, token, pid, uid, cid):
+def construct_attchment_list(sess, token, pid, uid, cid, parent_dir):
     attachment_list = list()
     attachment_info_url = attachment_url_fmt.format(token, pid, 1, uid, cid)
     r = sess.get(attachment_info_url, verify=False)
@@ -52,6 +53,8 @@ def construct_attchment_list(sess, token, pid, uid, cid):
         info = r.json()['message']
         attachment_list.extend(info.get('list'))
         current_page += 1
+    for entry in attachment_list:
+        entry["parent_dir"] = parent_dir
     return attachment_list
 
 # Load config from config.json
@@ -121,14 +124,12 @@ for cid in cid_list:
     print("\nDownloading files of course {}".format(course_name))
 
     # Create dir for this course
-    try:
-        os.chdir("./{}".format(course_name))
-    except FileNotFoundError:
-        os.mkdir("{}".format(course_name))
-        os.chdir("./{}".format(course_name))
+    root= pathlib.Path(os.getcwd()) / course_name
+    if not root.exists() or root.is_file():
+        os.makedirs(root)
 
     # Construct attachment list, with some dirs in it
-    course_attachment_list = construct_attchment_list(sess=sess, token=token, pid=0, uid=uid, cid=cid)
+    course_attachment_list = construct_attchment_list(sess=sess, token=token, pid=0, uid=uid, cid=cid, parent_dir=pathlib.Path("."))
 
     # Iteratively add files in dirs to global attachment list
     dir_counter = 0
@@ -137,7 +138,11 @@ for cid in cid_list:
             dir_counter += 1
             # Add dir content to attachment list
             dir_id = entry.get('id')
-            course_attachment_list.extend(construct_attchment_list(sess=sess, token=token, pid=dir_id, uid=uid, cid=cid))
+            dir_name = entry.get('title')
+            parent_dir = entry.get('parent_dir')
+            if not (root/parent_dir/dir_name).exists():
+                os.makedirs(root/parent_dir/dir_name)
+            course_attachment_list.extend(construct_attchment_list(sess=sess, token=token, pid=dir_id, uid=uid, cid=cid, parent_dir=parent_dir/dir_name))
 
     print("Get {:d} files, with {:d} dirs".format(len(course_attachment_list)-dir_counter, dir_counter))
 
@@ -151,6 +156,7 @@ for cid in cid_list:
             filename = filename_filter(entry.get('title'))
         else:
             filename = filename_filter("{}.{}".format(entry.get('title'), ext))
+        filepath = root/entry.get("parent_dir")/filename
 
         filesize = entry.get('size')
 
@@ -169,18 +175,18 @@ for cid in cid_list:
                 print("Failed to get content length of file {}, please download it manually.".format(filename))
                 continue
 
-            if filename in os.listdir():
+            if filepath.exists() and filepath.is_file():
                 # If file is up-to date, continue; else, delete and re-download
-                if os.path.getsize(filename) == content_size:
+                if os.path.getsize(filepath) == content_size:
                     print("File \"{}\" is up-to-date".format(filename))
                     continue
                 else:
                     print("Updating File {}".format(filename))
-                    os.remove(filename)
+                    os.remove(filepath)
 
             print("Downloading {}, filesize = {}".format(filename, filesize))
             chunk_size = min(content_size, 10240)
-            with open(filename, "wb") as f:
+            with open(filepath, "wb") as f:
                 chunk_count = 0
                 start_time = time.time()
                 # previous_time = time.time()
@@ -208,6 +214,5 @@ for cid in cid_list:
                     #     attachment_list.append(entry)
                     #     continue
 
-    os.chdir(r'../') # Switch directory
 
 print("Done!")
