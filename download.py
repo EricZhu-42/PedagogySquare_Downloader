@@ -138,7 +138,7 @@ for cid in cid_list:
             dir_counter += 1
             # Add dir content to attachment list
             dir_id = entry.get('id')
-            dir_name = entry.get('title')
+            dir_name = filename_filter(entry.get('title'))
             parent_dir = entry.get('parent_dir')
             if not (root/parent_dir/dir_name).exists():
                 os.makedirs(root/parent_dir/dir_name)
