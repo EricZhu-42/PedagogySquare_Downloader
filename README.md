@@ -119,7 +119,8 @@
 	"password": "your_password",
 	"ext_expel_list": [],
 	"cid_expel_list": [],
-        "save_path": "" 
+        "save_path": "",
+	"keep_dirs": false
 }
 ```
 
@@ -138,6 +139,7 @@
 | ext_expel_list       | list | 排除文件的类型列表                                      |
 | cid_expel_list             | list | 排除课程的课程ID列表                                    |
 | save_path | str | 下载目录（支持绝对路径或相对路径） |
+| keep_dirs | bool | 是否保留文件的目录结构 |
 
 ### 注意事项与说明：
 
