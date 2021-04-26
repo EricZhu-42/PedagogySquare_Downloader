@@ -65,6 +65,7 @@ with open('config.json', 'r') as f:
     ext_expel_list = config.get('ext_expel_list')
     cid_expel_list = list(map(str, config.get('cid_expel_list')))
     save_path = config.get('save_path', "")
+    keep_dirs = config.get('keep_dirs', False)
 
 if save_path:
     try:
@@ -138,7 +139,7 @@ for cid in cid_list:
             dir_counter += 1
             # Add dir content to attachment list
             dir_id = entry.get('id')
-            dir_name = filename_filter(entry.get('title'))
+            dir_name = filename_filter(entry.get('title')) if keep_dirs else ''
             parent_dir = entry.get('parent_dir')
             if not (root/parent_dir/dir_name).exists():
                 os.makedirs(root/parent_dir/dir_name)

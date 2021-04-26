@@ -3,5 +3,6 @@
 	"password": "somepassword",
     "ext_expel_list": ["mp4", "pdf"],
 	"cid_expel_list": [12102],
-	"save_path" : ""
+	"save_path" : "",
+	"keep_dirs": false
 }
