@@ -19,16 +19,20 @@
 在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **Requests**
 
 > 创建日期：2020-03-30  
-> 更新日期：2021-04-08
+> 更新日期：2021-04-26
 
 ## 下载地址
 
-**更新日期：2020年3月5日**
+**更新日期：2020年4月26日**
 
 推荐通过Github release[下载](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.5/PedagogySquare_Downloader_20210305.zip)；若连接速度较慢，亦可通过国内镜像地址[下载](https://box.nju.edu.cn/f/aee6e9a8690a474c84bf/?dl=1)。
 
 
 ## 版本更新日志
+
+### 2021年4月26日：功能性更新
+
+在 `config.json` 文件中增加了 `keep_dirs` 项，可选择下载时是否保持课件的文件夹结构（默认为 `false`）
 
 ### 2021年3月5日：功能性更新
 
