@@ -63,8 +63,8 @@ with open('config.json', 'r') as f:
     user_name = config.get('username')
     user_passwd = config.get('password')
     ext_expel_list = config.get('ext_expel_list')
-    cid_include_list = list(map(str, config.get('cid_include_list')))
-    cid_expel_list = list(map(str, config.get('cid_expel_list')))
+    cid_include_list = list(map(str, config.get('cid_include_list', [])))
+    cid_expel_list = list(map(str, config.get('cid_expel_list', [])))
     save_path = config.get('save_path', "")
     keep_dirs = config.get('keep_dirs', False)
 
@@ -117,7 +117,7 @@ def check_cid(cid):
         return False
     return cid not in cid_expel_list
 
-print("Ready to download the following courses:")
+print("\nReady to download the following courses:")
 for cid, cname in cid2name_dict.items():
     if not check_cid(cid):
         continue
