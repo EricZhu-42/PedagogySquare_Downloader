@@ -19,7 +19,7 @@
 在线教学平台——[教学立方](https://teaching.applysquare.com)的课件批量下载脚本，基于**Python** + **Requests**
 
 > 创建日期：2020-03-30  
-> 更新日期：2021-06-16
+> 更新日期：2021-06-21
 
 ## 下载地址
 
@@ -29,6 +29,10 @@
 
 
 ## 版本更新日志
+
+### 2021年6月21日：功能性更新
+
+在 `config.json` 文件中增加了 `cid_include_list` 项，在非空时将仅下载指定的部分课程。
 
 ### 2021年4月26日：功能性更新
 
@@ -119,6 +123,7 @@
 	"password": "your_password",
 	"ext_expel_list": [],
 	"cid_expel_list": [],
+	"cid_include_list": [],
         "save_path": "",
 	"keep_dirs": false
 }
@@ -138,6 +143,7 @@
 | password             | str  | 教学立方登录密码                                    |
 | ext_expel_list       | list | 排除文件的类型列表                                      |
 | cid_expel_list             | list | 排除课程的课程ID列表                                    |
+| cid_include_list | list | 保留课程的ID列表 |
 | save_path | str | 下载目录（支持绝对路径或相对路径） |
 | keep_dirs | bool | 是否保留文件的目录结构 |
 
