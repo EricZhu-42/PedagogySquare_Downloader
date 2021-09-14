@@ -1,3 +1,5 @@
+<p align="center"> <img src="figure/title.jpg" align="center"/> </p>
+
 <p align="center">
 
   <img alt="GitHub" src="https://img.shields.io/github/license/EricZhu-42/PedagogySquare_Downloader">
@@ -63,10 +65,6 @@
 1. **一键下载**所有课程的全部课件，方便快捷
 2. **可下载未直接开放下载的课件**，视频等内容
 3. **可深度配置**的课程筛选/文件拓展名筛选功能
-
-以下为运行过程中控制台截图示例：
-
-![](./figure/1.png)
 
 > 本程序旨在方便学生下载教学立方平台上的课件及相关教学资料，消除下载文件的重复劳动  
 > 请尊重教师的知识产权与劳动成果。除非获得教师许可，请勿将下载得到的文件在互联网上进行传播  
