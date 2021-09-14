@@ -1,4 +1,4 @@
-<p align="center"> <img src="figure/title.jpg" align="center"/> </p>
+<p align="center"> <img src="figure/title.jpg" width=800 align="center"/> </p>
 
 <p align="center">
 
