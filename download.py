@@ -6,7 +6,7 @@
 
 @Create date: 2020/03/31
 
-@Modified date: 2021/04/26
+@Modified date: 2021/09/14
 
 @description: A script to download file automatically from teaching.applysquare.com
 """
@@ -121,7 +121,7 @@ print("\nReady to download the following courses:")
 for cid, cname in cid2name_dict.items():
     if not check_cid(cid):
         continue
-    print(cname, cid)
+    print("Course: {:8s}, CID={:6}".format(cname, cid))
 
 for cid in cid_list:
     cid = str(cid) # Prevent bug caused by wrong type of cid
@@ -157,7 +157,7 @@ for cid in cid_list:
                 os.makedirs(root/parent_dir/dir_name)
             course_attachment_list.extend(construct_attchment_list(sess=sess, token=token, pid=dir_id, uid=uid, cid=cid, parent_dir=parent_dir/dir_name))
 
-    print("Get {:d} files, with {:d} dirs".format(len(course_attachment_list)-dir_counter, dir_counter))
+    print("Get {:d} files with {:d} dirs".format(len(course_attachment_list)-dir_counter, dir_counter))
 
     # Download attachments
     for entry in course_attachment_list:
@@ -191,13 +191,13 @@ for cid in cid_list:
             if filepath.exists() and filepath.is_file():
                 # If file is up-to date, continue; else, delete and re-download
                 if os.path.getsize(filepath) == content_size:
-                    print("File \"{}\" is up-to-date".format(filename))
+                    print("File {:\u3000<20} is up-to-date".format(filename))
                     continue
                 else:
                     print("Updating File {}".format(filename))
                     os.remove(filepath)
 
-            print("Downloading {}, filesize = {}".format(filename, filesize))
+            print("Downloading {:\u3000<20s}, filesize = {}".format(filename, filesize))
             chunk_size = min(content_size, 10240)
             with open(filepath, "wb") as f:
                 chunk_count = 0
