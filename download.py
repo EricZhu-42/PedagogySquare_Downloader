@@ -58,7 +58,7 @@ def construct_attchment_list(sess, token, pid, uid, cid, parent_dir):
     return attachment_list
 
 # Load config from config.json
-with open('config.json', 'r') as f:
+with open('config.json', 'r', encoding='utf-8') as f:
     config = json.loads(f.read())
     user_name = config.get('username')
     user_passwd = config.get('password')
