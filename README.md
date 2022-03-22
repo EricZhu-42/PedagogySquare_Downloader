@@ -25,7 +25,7 @@
 
 ## 下载地址
 
-**更新日期：2020年6月21日**
+**更新日期：2021年6月21日**
 
 推荐通过Github release[下载](https://github.com/EricZhu-42/PedagogySquare_Downloader/releases/download/v1.7/PedagogySquare_Downloader_20210621.zip)；若连接速度较慢，亦可通过国内镜像地址[下载](https://box.nju.edu.cn/f/4214a2459d4347df9394/?dl=1)。
 
