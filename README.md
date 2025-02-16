@@ -23,6 +23,8 @@
 > 创建日期：2020-03-30  
 > 更新日期：2022-03-06
 
+**✨ [2025/02/16] [@TwinklerG](https://github.com/TwinklerG) 维护了该项目的 [Rust 版本](https://github.com/TwinklerG/PedagogySquare-Downloader-rs)，支持多线程并行下载，欢迎试用。**
+
 ## 下载地址
 
 **更新日期：2021年6月21日**
